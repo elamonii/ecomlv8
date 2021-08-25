@@ -1,0 +1,93 @@
+login->
+	
+	user dashboard
+
+	  1. product view
+	  2. add to cart
+	  3. checkout & payment gateway
+	  4. orderlist
+	  5. profile setting
+	  6. tracking
+
+	admin dashboard
+
+	  1. category CRUD
+	  2. sub category CRUD
+	  3. product CRUD
+	  4. user list - CRUD, active
+	  5. order list - status change - pending, accept, processing, delivery 
+	  6. reporting - total order, area wise order
+	  7. role wise admin create - role create & permission assign against role, permission list create, user create & role assign, 
+	  
+	  
+	  
+
+1. Category - (kazi ela)
+	
+	add - category name (text), parent category id (select option), category image (file), slug (text), related category (select option) [muti select]
+	view - category list
+	edit - category name, parent category id, category image, slug
+	delete - soft delete, hard delete (product dependency)
+
+
+2. Product - 
+
+	add - category (select option), sub cateogory (select option) [muti select], product name, product description, product slug, product image main (file),
+		  input type file mutiple (image bulk update), product buying price , product tax, product discount (amount/percentage), product selling price, 
+		  product color (select option) [muti select], product size (select option) [muti select], product description , product specification ,stock qty,
+		  tag
+		  
+	view - product list
+	edit - all delete
+	delete - 
+	
+3. order list - 
+
+	table view -> id, invoice no, date, user_id, status
+	
+4. Role create - 
+
+	role add - role name
+	edit 
+	delete
+	
+5. permission create -
+
+	permission add - permission name, permission route
+	edit 
+	delete
+	
+6. Role wise permission assign - role selection (select option), permission selection (select option) [multi select]
+
+7. User wise role assign - user id (select option), role id (select option)
+
+8. user management - name, phone, email, address, gender, role
+	
+	edit, delete
+	
+9. rating & review -> rating point, create_by, product_id, review details
+
+10. coupon - name, expire date, amount
+
+cateogory table -> id , name, image, slug, related_category
+product table -> id, cateogory_id, subcategory_id (json), name, description, slug, buying price, tax, discount, selling price, color, size, specification, qty, tag (json)
+product image -> product_id, main_image 
+color - id, name
+size - id, name
+orders - id, invoice_no, total amount, user_id,coupon_id
+order_details - id, invoice_no, product_id, qty, price, discount, color, size ,note 
+role - id , name
+permission - id, name
+role_permission - id, role_id, permission_id (json)
+user_role - user_id, role_id
+users - id, name, phone, email, address, gender
+review - rating_point, create_by, product_id, review_details
+
+
+
+permissions:
+
+route: category/list name: category view
+route: category/add name: category add
+route: category/edit name: category edit
+route: category/delete name: category delete
